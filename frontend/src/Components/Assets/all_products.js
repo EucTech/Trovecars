@@ -26,8 +26,7 @@ import ford_4 from './ford_4.jpg'
 import ford_5 from './ford_5.jpg'
 import ford_6 from './ford_6.jpg'
 
-let all_products = [
-    {
+let all_products = [{
         id: 1,
         title: 'Audi 8-serie 2-door coupe grey',
         condition: 'Used',
@@ -52,7 +51,7 @@ let all_products = [
             audi_4,
             audi_5,
             audi_6,
-        }
+        },
     },
     {
         id: 2,
