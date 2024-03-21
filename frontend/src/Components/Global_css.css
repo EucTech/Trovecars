@@ -1,5 +1,6 @@
 :root {
     --primary-color: #E8751A; 
     --secondary-color: #6c757d; 
-    --accent-color: #ffc107; 
+    --background-color: #0f141e; 
+    --light-grey-color: rgb(151, 149, 149);
   }
