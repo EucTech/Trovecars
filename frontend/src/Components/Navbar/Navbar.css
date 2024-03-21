@@ -1,7 +1,294 @@
-.nav-logo {
+.navbar {
+    display: flex;
+    height: 100vh;
     width: 100%;
+    border: 1px red solid;
+    flex-direction: column;
+    animation: slideBackground 20s ease-in-out infinite;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes slideBackground {
+    0% {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-red-car.jpg');
+        background-size: 100%;
+    }
+
+    33.33% {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-green-car.jpg');
+        background-size: 110%;
+    }
+
+    66.66% {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-black-car.jpg');
+        background-size: 120%;
+    }
+
+    100% {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-red-car.jpg');
+        background-size: 100%;
+    }
+}
+
+.navbar .nav-logo {
+    min-width: 5em;
+    height: 5em;
+    cursor: pointer;
 }
 
 .nav-logo img {
-    width: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar .nav-links ul {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar .nav-links ul li:hover {
+    color: var(--primary-color);
+}
+
+.navbar .account-icon {
+    color: var(--primary-color);
+}
+
+.navbar .register-icon {
+    color: var(--primary-color);
+}
+
+.navbar .register:hover {
+    color: var(--primary-color);
+}
+
+.navbar .navbar-static .nav-links ul {
+    color: white;
+}
+
+.navbar .navbar-fixed .nav-links ul {
+    color: black;
+}
+
+.navbar .nav-links .register {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar .nav-links .user-account {
+    display: flex;
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px var(--primary-color) solid;
+}
+
+.navbar .navbar-hr li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .navbar-hr li hr {
+    margin-bottom: 20px;
+    border: none;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--primary-color);
+    width: 0;
+    transition: width 3s ease-in-out;
+}
+
+.navbar .navbar-hr li:hover hr {
+    width: 90%;
+}
+
+.navbar nav {
+    display: flex;
+    width: 100%;
+    height: 6em;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding: 0 200px;
+}
+
+.navbar-static {
+    border: 2px solid black;
+    padding-top: 20px !important;
+}
+
+.navbar-fixed {
+    border: 2px solid blue;
+    position: fixed;
+    transform: translateY(-100%);
+    background-color: white;
+    transition: 0.1s ease-in;
+}
+
+.navbar-fixed.show {
+    transform: translateY(0);
+}
+
+.navbar-static.hide {
+    transform: translateY(-100%);
+}
+
+.navbar-small-screen {
+    display: none;
+}
+
+
+@media (max-width:1200px) {
+    .navbar nav {
+        padding: 0 120px;
+    }
+}
+
+@media (max-width:992px) {
+    .navbar nav {
+        padding: 0 60px;
+    }
+
+    .navbar .nav-links ul {
+        gap: 40px;
+    }
+}
+
+@media (max-width:800px) {
+
+    .navbar .navbar-fixed,
+    .navbar .navbar-static {
+        display: none;
+    }
+
+    .navbar-small-screen {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 20px 10px;
+        gap: 100px;
+    }
+
+    .navbar .bar-icon {
+        color: white;
+        font-size: 30px;
+    }
+
+    .navbar .user-account {
+        display: flex;
+        padding: 10px;
+        border-radius: 50px;
+        border: 2px white solid;
+    }
+
+    .navbar .account-icon {
+        color: white;
+    }
+
+    .small-screen-nav-links {
+        display: flex;
+        flex-direction: column;
+        /* align-items: flex-start; */
+        position: fixed;
+        width: 70vw;
+        height: 100vh;
+        background-color: var(--background-color);
+        transform: translateX(-100%);
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 40px;
+        z-index: 99999;
+        gap: 30px;
+        transition: 0.2s all ease-in-out;
+    }
+
+    .small-screen-nav-links.open {
+        transform: translateX(0%);
+    }
+
+    .small-screen-nav-links ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .small-screen-nav-links ul li {
+        color: white;
+        border-bottom: 2px var(--light-grey-color) solid;
+        padding-bottom: 20px;        
+    }
+
+    .small-screen-nav-links ul li:hover {
+        color: var(--primary-color);
+    }
+
+    .small-screen-nav-links ul .register li {
+        border-bottom: 2px transparent solid;
+        padding-bottom: 0; 
+    }
+
+    .small-screen-nav-links ul .register {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 40px;
+        border-bottom: 2px var(--light-grey-color) solid;
+        padding-bottom: 20px;        
+    }
+
+    .small-screen-nav-links ul .register:hover li {
+        color: var(--primary-color);
+    }
+
+    .small-screen-nav-links .sm-image-icon {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px white solid;
+    }
+
+    .small-screen-nav-links .sm-image-icon .sm-nav-logo {
+        width: 5em;
+    }
+
+    .small-screen-nav-links .sm-image-icon .sm-nav-logo img {
+        width: 5em;
+    }
+
+    .small-screen-nav-links .close-bar-icon {
+        color: white;
+        font-size: 30px;
+    }
+
+    .small-screen-nav-links .nav-support {
+        color: var(--light-grey-color);
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .small-screen-nav-links .nav-support span {
+        color: var(--primary-color);
+    }
+}
+
+@media (max-width:600px) {
+    .small-screen-nav-links {
+        width: 100vw;
+    }
+
+    .navbar-small-screen {
+        gap: 40px;
+    }
 }
