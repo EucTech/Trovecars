@@ -1,0 +1,73 @@
+.featuredlisting {
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.featuredlisting .featuredlisting-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.featuredlisting .featuredlisting-header h1 {
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.featuredlisting .featuredlisting-new-used {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.featuredlisting .featuredlisting-new-used .featuredlisting-btn {
+    background-color: rgba(47, 59, 72, 0.08);
+    color: rgb(71, 70, 70);
+    padding: 15px 40px;
+    font-size: 16px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border: 2px transparent solid;
+    font-family: 'poppins';
+
+}
+
+.featuredlisting .featuredlisting-new-used .featuredlisting-btn.fl-btn-active {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.featuredlisting .featuredlisting-new-used .featuredlisting-btn:hover {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.featuredlisting .featuredlisting-main {
+    border: 1px red solid;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.featuredlisting .featuredlisting-main .featuredlisting-main-right {
+    border: 1px red solid;
+    width: 100%;
+    height: 100%;
+}
+
+.featuredlisting .featuredlisting-main .featuredlisting-main-left {
+    border: 1px red solid;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    column-gap: 20px;
+    row-gap: 20px;
+}
