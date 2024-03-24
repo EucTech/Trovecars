@@ -52,6 +52,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      <div className="background-image"></div>
       <nav className={`navbar-static ${showFixedNavbar ? "hide" : ""}`}>
         <div className="nav-logo">
           <img src={logo} alt="" />

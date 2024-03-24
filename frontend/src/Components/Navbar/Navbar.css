@@ -8,27 +8,29 @@
     background-size: cover;
     background-position: center;
     padding-bottom: 50px;
+    overflow: hidden;
 }
 
 @keyframes slideBackground {
     0% {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-red-car.jpg');
-        background-size: 100%;
+        /* background-size: 100%; */
+        transition: .6s;
     }
 
     33.33% {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-green-car.jpg');
-        background-size: 110%;
+        /* background-size: 110%; */
     }
 
     66.66% {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-black-car.jpg');
-        background-size: 120%;
+        /* background-size: 120%; */
     }
 
     100% {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89), rgba(8, 8, 8, 0.692)), url('../Assets/slide-red-car.jpg');
-        background-size: 100%;
+        /* background-size: 100%; */
     }
 }
 
@@ -130,6 +132,7 @@
     background-color: var(--light-dark-color);
     transition: 0.1s ease-in;
     height: 5em !important;
+    z-index: 999999;
 }
 
 .navbar-fixed.show {
