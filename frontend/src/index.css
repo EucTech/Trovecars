@@ -12,9 +12,10 @@ ul {
   list-style: none;
 }
 
-h1 {
+h1, h5 {
   font-family: "Mulish", sans-serif;
 }
+
 
 body {
   margin: 0;
@@ -24,6 +25,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'poppins';
+  color: #222732;
 }
 
 code {
