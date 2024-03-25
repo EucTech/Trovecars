@@ -1,0 +1,72 @@
+.popular .items {
+    width: 300px;
+}
+
+.popular {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 40px;
+    border: 1px red solid;
+    background-color: #EFF3FA;
+    padding: 60px 40px;
+}
+
+.popular .popular-header {
+    border: 1px red solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popular .popular-header h1 {
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.popular .popular-header .popular-cars {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.popular .popular-header .popular-cars .popular-btn {
+    background-color: rgba(47, 59, 72, 0.08);
+    color: rgb(102, 100, 100);
+    padding: 10px 20px;
+    font-size: 10px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border: 2px transparent solid;
+    font-family: 'poppins';
+    line-height: 1.5;
+}
+
+.popular .popular-header .popular-cars .popular-btn h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.popular .popular-header .popular-cars .popular-btn-active h4,
+.popular .popular-header .popular-cars .popular-btn:hover h4 {
+    color: var(--primary-color);
+}
+
+.popular .popular-header .popular-cars .popular-btn-active {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.popular .popular-header .popular-cars .popular-btn:hover {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.popular .popular-items {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+}
