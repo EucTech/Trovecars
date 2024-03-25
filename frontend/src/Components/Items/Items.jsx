@@ -35,13 +35,14 @@ const Items = (props) => {
         </div>
       </div>
       <div className="items-info">
-        <h4>{shortTitle()}</h4>
+        <h4 className="items-title-short">{shortTitle()}</h4>
+        <h4 className="items-title">{props.title}</h4>
         <h3>&#x20a6;{props.price}</h3>
         <hr />
         <div className="items-yr-ty-tran">
           <Button className="item-btn" >{props.year}</Button>
           <h5>{props.transmission}</h5>
-          <h5>{props.fuel_type}</h5>
+          <h5 className="fuel-type">{props.fuel_type}</h5>
         </div>
       </div>
     </div>
