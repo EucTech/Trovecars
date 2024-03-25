@@ -70,12 +70,12 @@ const Navbar = () => {
                 </span>
               </li>
               <li
-                onMouseOver={() => setMenu("about")}
+                onMouseOver={() => setMenu("car")}
                 onMouseOut={() => setMenu(null)}
               >
-                {menu === "about" ? <hr /> : <></>}
-                <span style={{ marginBottom: menu !== "about" ? 0 : 20 }}>
-                  About
+                {menu === "car" ? <hr /> : <></>}
+                <span style={{ marginBottom: menu !== "car" ? 0 : 20 }}>
+                  Cars
                 </span>
               </li>
               <li
@@ -106,7 +106,7 @@ const Navbar = () => {
         <div className="nav-links">
           <ul>
             <li>Home</li>
-            <li>About</li>
+            <li>Cars</li>
             <li>Sell Your Car</li>
             <div className="register">
               <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
@@ -140,7 +140,7 @@ const Navbar = () => {
           </div>
           <ul>
             <li>Home</li>
-            <li>About</li>
+            <li>Cars</li>
             <li>Sell Your Car</li>
             <div className="register">
               <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
