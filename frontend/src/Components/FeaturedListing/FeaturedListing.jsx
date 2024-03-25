@@ -3,6 +3,8 @@ import "./FeaturedListing.css";
 import { Button } from "@material-tailwind/react";
 import all_products from "../Assets/all_products";
 import Items from "../Items/Items";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImages } from "@fortawesome/free-solid-svg-icons";
 
 const FeaturedListing = () => {
   return (
@@ -15,21 +17,43 @@ const FeaturedListing = () => {
         </div>
       </div>
       <div className="featuredlisting-main">
-        <div className="featuredlisting-main-right">
-              <Items
-                key={all_products[0].id}
-                id={all_products[0].id}
-                title={all_products[0].title}
-                year={all_products[0].year}
-                transmission={all_products[0].transmission}
-                fuel_type={all_products[0].fuel_type}
-                price={all_products[0].price}
-                images={Object.values(all_products[0].images)[0]}
-                numberOfImages={Object.values(all_products[0].images).length}
-              />
-        </div>
         <div className="featuredlisting-main-left">
-          {all_products.map((item, i) => {
+          <div
+            className="featuredlisting-left-img-section"
+            key={all_products[0].id}
+            id={all_products[0].id}
+          >
+            <div
+              className="featuredlisting-left-image"
+              style={{
+                backgroundImage: `url(${
+                  Object.values(all_products[0].images)[0]
+                })`,
+              }}
+            ></div>
+            <div className="featuredlisting-left-numberof-images">
+              <FontAwesomeIcon className="image-icon" icon={faImages} />
+              <p>{Object.values(all_products[0].images).length}</p>
+            </div>
+          </div>
+          <div className="featuredlisting-left-info">
+            <h4>{all_products[0].title}</h4>
+            <hr />
+            <div className="featuredlisting-tran">
+              <div className="featured-type">
+                <Button className="featured-btn">{all_products[0].year}</Button>
+                <h5>{all_products[0].transmission}</h5>
+                <h5 className="fuel-type">{all_products[0].fuel_type}</h5>
+                <h5 className="drive-type">{all_products[0].drive_type}</h5>
+              </div>
+              <div className="featured-price">
+                <h3>&#x20a6;{all_products[0].price}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="featuredlisting-main-right">
+          {all_products.slice(1, 4).map((item, i) => {
             return (
               <Items
                 key={i}
