@@ -83,11 +83,11 @@ const Popular = () => {
       </div>
       <div className="popular-next-prev">
         <div className="popular-icon">
-          <FontAwesomeIcon icon={faArrowLeft} onClick={prevPage} />
-          <FontAwesomeIcon icon={faArrowRight} onClick={nextPage} />
+          <FontAwesomeIcon className="p-icon" icon={faArrowLeft} onClick={prevPage} />
+          <FontAwesomeIcon className="p-icon" icon={faArrowRight} onClick={nextPage} />
         </div>
         <div className="popular-view-make">
-            <Button>View {itemsPerPage} {makeFilter}</Button>
+            <Button className="p-btn">View {itemsPerPage} {makeFilter}</Button>
         </div>
       </div>
     </div>
