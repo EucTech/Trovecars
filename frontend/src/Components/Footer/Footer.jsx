@@ -3,9 +3,16 @@ import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import logo from "../Assets/logo.png";
-
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+
+   // Force reload the page
+   const handleRefresh = () => {
+    window.reload(true);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="footer">
       <div className="footer-main">
@@ -14,9 +21,19 @@ const Footer = () => {
         </div>
         <div className="footer-links">
           <ul>
-            <li>Home</li>
-            <li>Cars</li>
-            <li>Sell Your Car</li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/"
+              onClick={handleRefresh}
+            >
+              <li>Home</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/cars">
+              <li>Cars</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/seller">
+              <li>Sell Your Car</li>
+            </Link>
             <li>Blog</li>
           </ul>
         </div>
