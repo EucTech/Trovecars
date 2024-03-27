@@ -35,7 +35,7 @@ const FeaturedListing = () => {
           >
             Used
           </Button>
-        </div>
+        </div> 
       </div>
       <div className="featuredlisting-main">
         <div className="featuredlisting-main-left">
