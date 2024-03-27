@@ -1,0 +1,198 @@
+.popular .items {
+    width: 300px;
+}
+
+.popular {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 40px;
+    background-color: #EFF3FA;
+    padding: 60px 40px;
+}
+
+.popular .popular-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popular .popular-header h1 {
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.popular .popular-header .popular-cars {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.popular .popular-header .popular-cars .popular-btn {
+    background-color: rgba(47, 59, 72, 0.08);
+    color: rgb(102, 100, 100);
+    padding: 10px 20px;
+    font-size: 10px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border: 2px transparent solid;
+    font-family: 'poppins';
+    line-height: 1.5;
+}
+
+.popular .popular-header .popular-cars .popular-btn h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.popular .popular-header .popular-cars .popular-btn-active h4,
+.popular .popular-header .popular-cars .popular-btn:hover h4 {
+    color: var(--primary-color);
+}
+
+.popular .popular-header .popular-cars .popular-btn-active {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.popular .popular-header .popular-cars .popular-btn:hover {
+    border: 2px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.popular .popular-items {
+    width: 100%;
+    display: flex;
+    /* grid-template-columns: repeat(4, 1fr); */
+    gap: 20px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.popular .popular-next-prev {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popular .popular-next-prev .popular-icon {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.popular .popular-next-prev .popular-icon .p-icon {
+    background-color: white;
+    color: #222732;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.popular .popular-next-prev .popular-view-make .p-btn {
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: capitalize;
+    font-family: 'poppins';
+    padding: 15px 30px;
+    font-size: 15px;
+}
+
+
+
+@media(max-width: 1200px) {
+    .popular .items {
+        width: 350px;
+    }
+
+    .popular .popular-items .items:last-child {
+        display: none;
+
+    }
+    .popular .popular-header h1 {
+        font-size: 40px;
+    }
+}
+
+@media(max-width:950px) {
+    .popular {
+        padding: 60px 20px;
+    }
+    .popular .popular-items .items:nth-child(3) {
+        display: none;
+    }
+    .popular .items {
+        width: 420px;
+    }
+
+    .popular .popular-header h1 {
+        font-size: 30px;
+    }
+
+    .popular .popular-header .popular-cars .popular-btn {
+        padding: 4px 16px;
+    }
+
+    .popular .popular-header .popular-cars .popular-btn h4 {
+        font-size: 15px;
+    }
+
+    .popular .popular-header .popular-cars {
+        gap: 10px;
+    }
+}
+
+@media(max-width:768px) {
+    .popular {
+        padding: 60px 50px;
+    }
+    .popular .popular-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .popular .popular-header .popular-cars {
+        padding: 8px 20px;
+        gap: 20px;
+    }
+}
+
+@media(max-width:680px) {
+    .popular .items {
+        width: 600px;
+    }
+
+    .popular .popular-header .popular-cars {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .popular .popular-header {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .popular .popular-items .items:nth-child(2) {
+        display: none;
+    }
+}
+
+@media(max-width:450px) {
+    .popular {
+        padding: 60px 15px;
+    }
+    .popular .popular-next-prev .popular-icon .p-icon {
+        padding: 13px;
+    }
+
+    .popular .popular-next-prev .popular-icon {
+        gap: 10px;
+    }
+    
+    .popular .popular-next-prev .popular-view-make .p-btn {
+        padding: 15px 20px;
+        font-size: 13px;
+    }
+
+}
