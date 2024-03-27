@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from "@material-tailwind/react";
+import CarContextProvider from './Context/CarContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <CarContextProvider>
+        <App />
+      </CarContextProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
