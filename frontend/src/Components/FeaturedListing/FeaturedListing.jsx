@@ -5,9 +5,9 @@ import all_products from "../Assets/all_products";
 import Items from "../Items/Items";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const FeaturedListing = () => {
-
   const [carCondition, setCarCondition] = useState("New");
 
   const filterCondition = all_products.filter(
@@ -19,45 +19,65 @@ const FeaturedListing = () => {
       <div className="featuredlisting-header">
         <h1>Featured Listings</h1>
         <div className="featuredlisting-new-used">
-          <Button className={`featuredlisting-btn ${carCondition === "New" ? "fl-btn-active" : ""}`} onClick={()=>setCarCondition("New")}>New</Button>
-          <Button className={`featuredlisting-btn ${carCondition === "Used" ? "fl-btn-active" : ""}`} onClick={()=>setCarCondition("Used")}>Used</Button>
+          <Button
+            className={`featuredlisting-btn ${
+              carCondition === "New" ? "fl-btn-active" : ""
+            }`}
+            onClick={() => setCarCondition("New")}
+          >
+            New
+          </Button>
+          <Button
+            className={`featuredlisting-btn ${
+              carCondition === "Used" ? "fl-btn-active" : ""
+            }`}
+            onClick={() => setCarCondition("Used")}
+          >
+            Used
+          </Button>
         </div>
       </div>
       <div className="featuredlisting-main">
         <div className="featuredlisting-main-left">
-          <div
-            className="featuredlisting-left-img-section"
-            key={filterCondition[0].id}
-            id={filterCondition[0].id}
-          >
+          <Link to={`/product/${filterCondition[0].id}`}>
             <div
-              className="featuredlisting-left-image"
-              style={{
-                backgroundImage: `url(${
-                  Object.values(filterCondition[0].images)[0]
-                })`,
-              }}
-            ></div>
-            <div className="featuredlisting-left-numberof-images">
-              <FontAwesomeIcon className="image-icon" icon={faImages} />
-              <p>{Object.values(filterCondition[0].images).length}</p>
-            </div>
-          </div>
-          <div className="featuredlisting-left-info">
-            <h4>{filterCondition[0].title}</h4>
-            <hr />
-            <div className="featuredlisting-tran">
-              <div className="featured-type">
-                <Button className="featured-btn">{filterCondition[0].year}</Button>
-                <h5>{filterCondition[0].transmission}</h5>
-                <h5 className="fuel-type">{filterCondition[0].fuel_type}</h5>
-                <h5 className="drive-type">{filterCondition[0].drive_type}</h5>
-              </div>
-              <div className="featured-price">
-                <h3>&#x20a6;{filterCondition[0].price}</h3>
+              className="featuredlisting-left-img-section"
+              key={filterCondition[0].id}
+              id={filterCondition[0].id}
+            >
+              <div
+                className="featuredlisting-left-image"
+                style={{
+                  backgroundImage: `url(${
+                    Object.values(filterCondition[0].images)[0]
+                  })`,
+                }}
+              ></div>
+              <div className="featuredlisting-left-numberof-images">
+                <FontAwesomeIcon className="image-icon" icon={faImages} />
+                <p>{Object.values(filterCondition[0].images).length}</p>
               </div>
             </div>
-          </div>
+            <div className="featuredlisting-left-info">
+              <h4>{filterCondition[0].title}</h4>
+              <hr />
+              <div className="featuredlisting-tran">
+                <div className="featured-type">
+                  <Button className="featured-btn">
+                    {filterCondition[0].year}
+                  </Button>
+                  <h5>{filterCondition[0].transmission}</h5>
+                  <h5 className="fuel-type">{filterCondition[0].fuel_type}</h5>
+                  <h5 className="drive-type">
+                    {filterCondition[0].drive_type}
+                  </h5>
+                </div>
+                <div className="featured-price">
+                  <h3>&#x20a6;{filterCondition[0].price}</h3>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
         <div className="featuredlisting-main-right">
           {filterCondition.slice(1, 5).map((item, i) => {
