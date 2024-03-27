@@ -182,6 +182,7 @@
     .navbar .bar-icon {
         color: white;
         font-size: 30px;
+        cursor: pointer;
     }
 
     .navbar .user-account {
@@ -263,6 +264,7 @@
 
     .small-screen-nav-links .sm-image-icon .sm-nav-logo {
         width: 5em;
+        cursor: pointer;
     }
 
     .small-screen-nav-links .sm-image-icon .sm-nav-logo img {
@@ -272,6 +274,7 @@
     .small-screen-nav-links .close-bar-icon {
         color: white;
         font-size: 30px;
+        cursor: pointer;
     }
 
     .small-screen-nav-links .nav-support {

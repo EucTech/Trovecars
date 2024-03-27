@@ -9,6 +9,7 @@ import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Hero from "../Hero/Hero";
 import "../Global_css.css";
+import { Link } from "react-router-dom";
 
 // import all_products from "../Assets/all_products";
 
@@ -30,125 +31,192 @@ const Navbar = () => {
     }
   };
 
+  // Force reload the page
+  const handleRefresh = () => {
+    window.location.reload(true);
+    window.scrollTo(0, 0);
+  };
+
   // nav menu
   const [menu, setMenu] = useState("null");
 
   // nav useRef
-  const navRef = useRef()
+  const navRef = useRef();
 
   // navbar open
   const navOpen = (e) => {
-    navRef.current.classList.add('open');
-    e.target.classList.add('open');
-  }
+    navRef.current.classList.add("open");
+    e.target.classList.add("open");
+  };
 
   // navbar close
   const navClose = (e) => {
-    navRef.current.classList.remove('open');
-    e.target.classList.remove('open');
-  }
-
-
+    navRef.current.classList.remove("open");
+    e.target.classList.remove("open");
+  };
 
   return (
     <div className="navbar">
       <div className="background-image"></div>
       <nav className={`navbar-static ${showFixedNavbar ? "hide" : ""}`}>
-        <div className="nav-logo">
-          <img src={logo} alt="" />
-        </div>
+        <Link style={{ textDecoration: "none" }} to="/" onClick={handleRefresh}>
+          <div className="nav-logo">
+            <img src={logo} alt="" />
+          </div>
+        </Link>
         <div className="nav-links">
           <ul>
             <ul className="navbar-hr">
-              <li
-                onMouseOver={() => setMenu("home")}
-                onMouseOut={() => setMenu(null)}
+              <Link
+                style={{ textDecoration: "none" }}
+                to="/"
+                onClick={handleRefresh}
               >
-                {menu === "home" ? <hr /> : <></>}
-                <span style={{ marginBottom: menu !== "home" ? 0 : 20 }}>
-                  Home
-                </span>
-              </li>
-              <li
-                onMouseOver={() => setMenu("car")}
-                onMouseOut={() => setMenu(null)}
-              >
-                {menu === "car" ? <hr /> : <></>}
-                <span style={{ marginBottom: menu !== "car" ? 0 : 20 }}>
-                  Cars
-                </span>
-              </li>
-              <li
-                onMouseOver={() => setMenu("seller")}
-                onMouseOut={() => setMenu(null)}
-              >
-                {menu === "seller" ? <hr /> : <></>}
-                <span style={{ marginBottom: menu !== "seller" ? 0 : 20 }}>
-                  Sell Your Car
-                </span>
-              </li>
+                <li
+                  onMouseOver={() => setMenu("home")}
+                  onMouseOut={() => setMenu(null)}
+                >
+                  {menu === "home" ? <hr /> : <></>}
+                  <span style={{ marginBottom: menu !== "home" ? 0 : 20 }}>
+                    Home
+                  </span>
+                </li>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="cars">
+                <li
+                  onMouseOver={() => setMenu("car")}
+                  onMouseOut={() => setMenu(null)}
+                >
+                  {menu === "car" ? <hr /> : <></>}
+                  <span style={{ marginBottom: menu !== "car" ? 0 : 20 }}>
+                    Cars
+                  </span>
+                </li>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="seller">
+                <li
+                  onMouseOver={() => setMenu("seller")}
+                  onMouseOut={() => setMenu(null)}
+                >
+                  {menu === "seller" ? <hr /> : <></>}
+                  <span style={{ marginBottom: menu !== "seller" ? 0 : 20 }}>
+                    Sell Your Car
+                  </span>
+                </li>
+              </Link>
             </ul>
-            <div className="register">
-              <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
-              <li>Register</li>
-            </div>
-            <div className="user-account">
-              <FontAwesomeIcon icon={faUser} className="account-icon" />
-            </div>
+            <Link style={{ textDecoration: "none" }} to="signup">
+              <div className="register">
+                <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
+                <li>Register</li>
+              </div>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="account">
+              <div className="user-account">
+                <FontAwesomeIcon icon={faUser} className="account-icon" />
+              </div>
+            </Link>
           </ul>
         </div>
       </nav>
 
       <nav className={`navbar-fixed ${showFixedNavbar ? "show" : ""}`}>
-        <div className="nav-logo">
-          <img src={logo} alt="" />
-        </div>
+        <Link style={{ textDecoration: "none" }} to="/" onClick={handleRefresh}>
+          <div className="nav-logo">
+            <img src={logo} alt="" />
+          </div>
+        </Link>
         <div className="nav-links">
           <ul>
-            <li>Home</li>
-            <li>Cars</li>
-            <li>Sell Your Car</li>
-            <div className="register">
-              <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
-              <li>Register</li>
-            </div>
-            <div className="user-account">
-              <FontAwesomeIcon icon={faUser} className="account-icon" />
-            </div>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/"
+              onClick={handleRefresh}
+            >
+              <li>Home</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/cars">
+              <li>Cars</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/seller">
+              <li>Sell Your Car</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/signup">
+              <div className="register">
+                <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
+                <li>Register</li>
+              </div>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/account">
+              <div className="user-account">
+                <FontAwesomeIcon icon={faUser} className="account-icon" />
+              </div>
+            </Link>
           </ul>
         </div>
       </nav>
 
       <div className="navbar-small-screen">
         <div>
-          <FontAwesomeIcon onClick={navOpen} icon={faBars} className="bar-icon" />
+          <FontAwesomeIcon
+            onClick={navOpen}
+            icon={faBars}
+            className="bar-icon"
+          />
         </div>
-        <div className="nav-logo">
-          <img src={logo} alt="" />
-        </div>
-        <div className="user-account">
-          <FontAwesomeIcon icon={faUser} className="account-icon" />
-        </div>
+        <Link style={{ textDecoration: "none" }} to="/" onClick={handleRefresh}>
+          <div className="nav-logo">
+            <img src={logo} alt="" />
+          </div>
+        </Link>
+        <Link style={{ textDecoration: "none" }} to="/account">
+          <div className="user-account">
+            <FontAwesomeIcon icon={faUser} className="account-icon" />
+          </div>
+        </Link>
         <div ref={navRef} className="small-screen-nav-links ">
           <div className="sm-image-icon">
-            <div className="sm-nav-logo">
-              <img src={logo} alt="" />
-            </div>
+            <Link style={{ textDecoration: "none" }} to="/" onClick={handleRefresh}>
+              <div className="sm-nav-logo">
+                <img src={logo} alt="" />
+              </div>
+            </Link>
             <div className="close-bar">
-              <FontAwesomeIcon onClick={navClose} icon={faSquareXmark} className="close-bar-icon"/>
+              <FontAwesomeIcon
+                onClick={navClose}
+                icon={faSquareXmark}
+                className="close-bar-icon"
+              />
             </div>
           </div>
           <ul>
-            <li>Home</li>
-            <li>Cars</li>
-            <li>Sell Your Car</li>
-            <div className="register">
-              <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
-              <li>Register</li>
-            </div>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/"
+              onClick={handleRefresh}
+            >
+              <li>Home</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/cars">
+              <li>Cars</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/seller">
+              <li>Sell Your Car</li>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/signup">
+              <div className="register">
+                <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
+                <li>Register</li>
+              </div>
+            </Link>
           </ul>
           <div className="nav-support">
-            <p><span><FontAwesomeIcon icon={faEnvelope} /></span>&nbsp;&nbsp;support@trovecars.com</p>
+            <p>
+              <span>
+                <FontAwesomeIcon icon={faEnvelope} />
+              </span>
+              &nbsp;&nbsp;support@trovecars.com
+            </p>
           </div>
         </div>
       </div>
