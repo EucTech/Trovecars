@@ -3,6 +3,7 @@ import Breadcrum from "../Components/Breadcrum/Breadcrum";
 import DisplayProduct from "../Components/DisplayProduct/DisplayProduct";
 import { CarContext } from "../Context/CarContext";
 import { useParams } from "react-router-dom";
+import MainNavbar from "../Components/MainNavbar/MainNavbar";
 
 const Product = () => {
   const { all_product } = useContext(CarContext);
@@ -12,6 +13,7 @@ const Product = () => {
   );
   return (
     <div>
+      <MainNavbar/>
       <Breadcrum product={product}/>
       <DisplayProduct product={product}/>
     </div>
