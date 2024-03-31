@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Hero.css";
 import "../Global_css.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,9 +9,10 @@ import hatchback_car from "../Assets/hatchback_car.png";
 import convertible_car from "../Assets/convertible_car.png";
 import { Button } from "@material-tailwind/react";
 import { Select, Option } from "@material-tailwind/react";
-// import dropdown_icon from '../Assets/dropdown_icon.png'
+import { CarContext } from "../../Context/CarContext";
 
 const Hero = () => {
+  const { all_product } = useContext(CarContext);
   return (
     <div className="hero">
       <div className="hero-header">
@@ -33,15 +34,9 @@ const Hero = () => {
               color="blue"
               label="All Makes"
             >
-              <Option value="audi">Audi (20)</Option>
-              <Option value="bmw">BMW (10)</Option>
-              <Option value="ford">Ford (3)</Option>
-              <Option value="mercedes-benz">Mercedes-Benz (5)</Option>
-              <Option value="bentley">Bentley (9)</Option>
-              <Option value="cadillac">Cadillac (4)</Option>
-              <Option value="chevrolet">Chevrolet (15)</Option>
-              <Option value="ferrari">Ferrari (40)</Option>
-              <Option value="porsche">Porsche (23)</Option>
+              {all_product.map((product, index) => (
+                <Option key={index}>{product.make}</Option>
+              ))}
             </Select>
             <Select
               name="model"
@@ -49,9 +44,9 @@ const Hero = () => {
               color="blue"
               label="All Models"
             >
-              <Option>A1</Option>
-              <Option>A2</Option>
-              <Option>A3</Option>
+              {all_product.map((product, index) => (
+                <Option key={index}>{product.model}</Option>
+              ))}
             </Select>
             <Select
               name="price"
@@ -59,8 +54,9 @@ const Hero = () => {
               color="blue"
               label="Max Price"
             >
-              <Option>$22,000</Option>
-              <Option>$300,000</Option>
+              {all_product.map((product, index) => (
+                <Option key={index}>{product.price}</Option>
+              ))}
             </Select>
           </div>
           <div className="car-selector-search">
