@@ -1,0 +1,44 @@
+.car-breadcrum {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.car-breadcrum h5 {
+    font-size: 15px;
+    opacity: 0.6;
+}
+.car-breadcrum .b-icon {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.car-breadcrum h5:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.car-breadcrum p {
+    color: var(--primary-color);
+}
+
+.car-search-section {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 20px;
+    padding:  40px;
+    background-color: var(--light-dark-color);
+}
+
+.car-search-section .car-select {
+  box-shadow: 0 0 3px rgba(139, 139, 139, 0.5);
+    
+}
+
+/* .w-full {
+    border: none;
+} */
