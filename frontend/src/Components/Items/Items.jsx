@@ -24,9 +24,13 @@ const Items = (props) => {
     return "";
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
-    <Link to={`/product/${props.id}`}>
-      <div className="items">
+    <Link to={`/product/${props.id}`} onClick={scrollToTop}>
+      <div className="items" >
         <div className="items-img-section">
           <div
             className="items-image"
