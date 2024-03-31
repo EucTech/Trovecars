@@ -29,6 +29,7 @@ import ford_6 from "./ford_6.jpg";
 let all_products = [
   {
     id: 1,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -95,6 +96,7 @@ let all_products = [
   },
   {
     id: 1,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -161,6 +163,7 @@ let all_products = [
   },
   {
     id: 1,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -227,6 +230,7 @@ let all_products = [
   },
   {
     id: 1,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -293,6 +297,7 @@ let all_products = [
   },
   {
     id: 2,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -359,6 +364,7 @@ let all_products = [
   },
   {
     id: 2,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -425,6 +431,7 @@ let all_products = [
   },
   {
     id: 2,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -491,6 +498,7 @@ let all_products = [
   },
   {
     id: 3,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -557,6 +565,7 @@ let all_products = [
   },
   {
     id: 3,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -623,6 +632,7 @@ let all_products = [
   },
   {
     id: 3,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -689,6 +699,7 @@ let all_products = [
   },
   {
     id: 3,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -755,6 +766,7 @@ let all_products = [
   },
   {
     id: 4,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -821,6 +833,7 @@ let all_products = [
   },
   {
     id: 5,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -887,6 +900,7 @@ let all_products = [
   },
   {
     id: 6,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -953,6 +967,7 @@ let all_products = [
   },
   {
     id: 7,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
@@ -1019,6 +1034,7 @@ let all_products = [
   },
   {
     id: 8,
+    videoUrl: 'https://videos.pexels.com/video-files/3066433/3066433-hd_2048_1080_24fps.mp4',
     safety_features: {
       "Active head restraints": true,
       "Adaptive headlights": true,
