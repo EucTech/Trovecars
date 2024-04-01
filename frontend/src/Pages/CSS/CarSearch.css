@@ -24,14 +24,19 @@
     color: var(--primary-color);
 }
 
+.car-search-main {
+    background-color: var(--light-dark-color);
+    padding:  40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
 .car-search-section {
     display: grid;
     align-items: center;
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin-bottom: 20px;
-    padding:  40px;
-    background-color: var(--light-dark-color);
 }
 
 .car-search-section .car-select {
@@ -39,6 +44,122 @@
     
 }
 
-/* .w-full {
-    border: none;
-} */
+.car-search-main h4 {
+    text-align: right;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.car-search-main h4:hover {
+    color: var(--primary-color);
+}
+
+.car-search-main .car-all-new-used {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.car-search-main .car-all-new-used div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+    padding-top: 10px;
+}
+
+.car-search-main .car-all-new-used h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.car-search-main .car-all-new-used div:hover h1 {
+    color: var(--primary-color);
+}
+
+.car-search-main .car-all-new-used div.car-active h1 {
+    color: var(--primary-color);
+}
+
+.car-search-main .car-all-new-used div:hover  {
+    border-top: 2px solid transparent;
+    padding-top: 10px;
+}
+
+.car-search-main .car-all-new-used div.car-active {
+    border-top: 2px solid var(--primary-color);
+    padding-top: 10px;
+}
+
+.car-search-main .car-all-new-used p {
+    font-size: 16px;
+    color: var(--light-grey-color);
+}
+
+.car-list h1 {
+    font-size: 28px;
+    padding-left: 40px;
+    font-weight: 700;
+}
+
+.car-list-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 40px;
+}
+
+.pagination  {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination .main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pagination .main strong {
+    color: var(--primary-color);
+}
+
+
+@media(max-width: 1200px) {
+    .car-list-items {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .car-search-section {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media(max-width: 1000px) {
+    .car-list-items {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .car-search-section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media(max-width: 770px) {
+    .car-list-items {
+        grid-template-columns: 1fr ;
+    }
+
+    .car-search-section {
+        grid-template-columns: 1fr;
+    }
+
+    .car-search-main h4 {
+        text-align: left;
+    }
+}
