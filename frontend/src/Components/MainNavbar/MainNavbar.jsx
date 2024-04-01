@@ -36,6 +36,11 @@ const MainNavbar = () => {
     window.scrollTo(0, 0);
   };
 
+  // scroll to the top page
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   // nav menu
   const [menu, setMenu] = useState("null");
 
@@ -80,7 +85,7 @@ const MainNavbar = () => {
                   </span>
                 </li>
               </Link>
-              <Link style={{ textDecoration: "none" }} to="/cars">
+              <Link style={{ textDecoration: "none" }} to="/cars" onClick={handleScrollToTop}>
                 <li
                   onMouseOver={() => setMenu("car")}
                   onMouseOut={() => setMenu(null)}
@@ -91,7 +96,7 @@ const MainNavbar = () => {
                   </span>
                 </li>
               </Link>
-              <Link style={{ textDecoration: "none" }} to="/seller">
+              <Link style={{ textDecoration: "none" }} to="/seller" onClick={handleScrollToTop}>
                 <li
                   onMouseOver={() => setMenu("seller")}
                   onMouseOut={() => setMenu(null)}
@@ -103,7 +108,7 @@ const MainNavbar = () => {
                 </li>
               </Link>
             </ul>
-            <Link style={{ textDecoration: "none" }} to="/signup">
+            <Link style={{ textDecoration: "none" }} to="/signup" onClick={handleScrollToTop}>
               <div className="register">
                 <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
                 <li>Register</li>
@@ -133,19 +138,19 @@ const MainNavbar = () => {
             >
               <li>Home</li>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/cars">
+            <Link style={{ textDecoration: "none" }} to="/cars" onClick={handleScrollToTop}>
               <li>Cars</li>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/seller">
+            <Link style={{ textDecoration: "none" }} to="/seller" onClick={handleScrollToTop}>
               <li>Sell Your Car</li>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/signup">
+            <Link style={{ textDecoration: "none" }} to="/signup" onClick={handleScrollToTop}>
               <div className="register">
                 <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
                 <li>Register</li>
               </div>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/account">
+            <Link style={{ textDecoration: "none" }} to="/account" onClick={handleScrollToTop}>
               <div className="user-account">
                 <FontAwesomeIcon icon={faUser} className="account-icon" />
               </div>
@@ -195,13 +200,13 @@ const MainNavbar = () => {
             >
               <li>Home</li>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/cars">
+            <Link style={{ textDecoration: "none" }} to="/cars" onClick={handleScrollToTop}>
               <li>Cars</li>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/seller">
+            <Link style={{ textDecoration: "none" }} to="/seller" onClick={handleScrollToTop}>
               <li>Sell Your Car</li>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/signup">
+            <Link style={{ textDecoration: "none" }} to="/signup" onClick={handleScrollToTop}>
               <div className="register">
                 <FontAwesomeIcon icon={faUserPlus} className="register-icon" />
                 <li>Register</li>
