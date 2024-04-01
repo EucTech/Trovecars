@@ -6,9 +6,8 @@ import logo from "../Assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-
-   // Force reload the page
-   const handleRefresh = () => {
+  // Force reload the page
+  const handleRefresh = () => {
     window.reload(true);
     window.scrollTo(0, 0);
   };
@@ -17,7 +16,13 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-main">
         <div className="footer-logo">
-          <img src={logo} alt="" />
+          <Link
+            style={{ textDecoration: "none" }}
+            to="/"
+            onClick={handleRefresh}
+          >
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="footer-links">
           <ul>
