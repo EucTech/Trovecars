@@ -10,6 +10,7 @@ import convertible_car from "../Assets/convertible_car.png";
 import { Button } from "@material-tailwind/react";
 import { Select, Option } from "@material-tailwind/react";
 import { CarContext } from "../../Context/CarContext";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const { all_product } = useContext(CarContext);
@@ -27,7 +28,7 @@ const Hero = () => {
           <h4>Used</h4>
         </div>
         <div className="select-car">
-          <div className="hero-car-selector">       
+          <div className="hero-car-selector">
             <Select
               name="make"
               className="car-price-selector"
@@ -64,36 +65,50 @@ const Hero = () => {
               icon={faMagnifyingGlass}
               className="car-search-icon"
             />
-            <Button className="car-search-btn">Search &nbsp;&nbsp; <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass}></FontAwesomeIcon> </Button>
+            <Button className="car-search-btn">
+              Search &nbsp;&nbsp;{" "}
+              <FontAwesomeIcon
+                className="search-icon"
+                icon={faMagnifyingGlass}
+              ></FontAwesomeIcon>{" "}
+            </Button>
           </div>
         </div>
       </div>
 
       <div className="hero-car-type">
-        <div className="car-type">
-          <div className="car-icon">
-            <img src={sedan_car} alt="" />
+        <Link to="/cars?type=Sedan">
+          <div className="car-type">
+            <div className="car-icon">
+              <img src={sedan_car} alt="" />
+            </div>
+            <p>Sedan</p>
           </div>
-          <p>Sedan</p>
-        </div>
-        <div className="car-type">
-          <div className="car-icon">
-            <img src={suv_car} alt="" />
+        </Link>
+        <Link to="/cars?type=SUV">
+          <div className="car-type">
+            <div className="car-icon">
+              <img src={suv_car} alt="" />
+            </div>
+            <p>SUV</p>
           </div>
-          <p>SUV</p>
-        </div>
-        <div className="car-type">
-          <div className="car-icon">
-            <img src={hatchback_car} alt="" />
+        </Link>
+        <Link to="/cars?type=Hatchback">
+          <div className="car-type">
+            <div className="car-icon">
+              <img src={hatchback_car} alt="" />
+            </div>
+            <p>Hatchback</p>
           </div>
-          <p>Hatchback</p>
-        </div>
-        <div className="car-type">
-          <div className="car-icon">
-            <img src={convertible_car} alt="" />
+        </Link>
+        <Link to="/cars?type=Convertible">
+          <div className="car-type">
+            <div className="car-icon">
+              <img src={convertible_car} alt="" />
+            </div>
+            <p>Convertible</p>
           </div>
-          <p>Convertible</p>
-        </div>
+        </Link>
       </div>
     </div>
   );
