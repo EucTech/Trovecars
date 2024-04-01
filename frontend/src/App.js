@@ -8,6 +8,7 @@ import SignUp from './Pages/SignUp'
 import Login from './Pages/Login'
 import UserAccount from './Pages/UserAccount'
 import CarSearch from './Pages/CarSearch'
+import NotFound from './Components/NotFound/NotFound'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/signup' element={<SignUp/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/account' element={<UserAccount/>} />
+          <Route path='*' element={<NotFound/>} />
         </Routes >
 
         <Footer/>
