@@ -35,8 +35,12 @@ const Hero = () => {
               color="blue"
               label="All Makes"
             >
-              {all_product.map((product, index) => (
-                <Option key={index}>{product.make}</Option>
+              {Array.from(
+                new Set(all_product.map((product) => product.make))
+              ).map((make, index) => (
+                <Option key={index} value={make}>
+                  {make}
+                </Option>
               ))}
             </Select>
             <Select
@@ -45,8 +49,16 @@ const Hero = () => {
               color="blue"
               label="All Models"
             >
-              {all_product.map((product, index) => (
-                <Option key={index}>{product.model}</Option>
+              {Array.from(
+                new Set(
+                  all_product
+                    .filter((product) => product.make)
+                    .map((product) => product.model)
+                )
+              ).map((model, index) => (
+                <Option key={index} value={model}>
+                  {model}
+                </Option>
               ))}
             </Select>
             <Select
@@ -55,8 +67,12 @@ const Hero = () => {
               color="blue"
               label="Max Price"
             >
-              {all_product.map((product, index) => (
-                <Option key={index}>{product.price}</Option>
+              {Array.from(
+                new Set(all_product.map((product) => product.price))
+              ).map((price, index) => (
+                <Option key={index} value={price}>
+                  {price}
+                </Option>
               ))}
             </Select>
           </div>
