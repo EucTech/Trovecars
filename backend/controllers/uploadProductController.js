@@ -69,7 +69,7 @@ const uploadProductController = {
       console.log(product);
       // Save the product to the database
       await product.save();
-      console.log("sav");
+      console.log("saved");
 
       res
         .status(201)
