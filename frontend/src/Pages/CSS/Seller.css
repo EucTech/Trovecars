@@ -1,4 +1,26 @@
-.seller-main  form input{ 
-    border: 2px red solid;
+.seller form input{ 
+    border: 2px var(--primary-color) solid;
     outline: none;
+    padding: 6px 10px;
+    color: var(--secondary-color);
+    border-radius: 8px;
+}
+
+.seller h1 {
+    padding-left: 40px;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.seller form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px;
+}
+
+.seller form button {
+    background-color: var(--primary-color);
+    color:white;
+    border-radius: 10px;
 }
