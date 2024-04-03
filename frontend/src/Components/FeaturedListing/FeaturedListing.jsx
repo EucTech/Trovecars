@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FeaturedListing.css";
 import { Button } from "@material-tailwind/react";
-import all_products from "../Assets/all_products";
+// import all_products from "../Assets/all_products";
 import Items from "../Items/Items";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +9,39 @@ import { Link } from "react-router-dom";
 
 const FeaturedListing = () => {
   const [carCondition, setCarCondition] = useState("New");
+
+  const [all_products, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchInfo = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/allProducts");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setAllProducts(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchInfo();
+  }, []);
+
+  // Error handling
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  // Loading state
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const filterCondition = all_products.filter(
     (item) => item.condition === carCondition
@@ -35,7 +68,7 @@ const FeaturedListing = () => {
           >
             Used
           </Button>
-        </div> 
+        </div>
       </div>
       <div className="featuredlisting-main">
         <div className="featuredlisting-main-left">
@@ -48,14 +81,12 @@ const FeaturedListing = () => {
               <div
                 className="featuredlisting-left-image"
                 style={{
-                  backgroundImage: `url(${
-                    Object.values(filterCondition[0].images)[0]
-                  })`,
+                  backgroundImage: `url(${filterCondition[0].images[0]})`,
                 }}
               ></div>
               <div className="featuredlisting-left-numberof-images">
                 <FontAwesomeIcon className="image-icon" icon={faImages} />
-                <p>{Object.values(filterCondition[0].images).length}</p>
+                <p>{filterCondition[0].images.length}</p>
               </div>
             </div>
             <div className="featuredlisting-left-info">
@@ -90,8 +121,8 @@ const FeaturedListing = () => {
                 transmission={item.transmission}
                 fuel_type={item.fuel_type}
                 price={item.price}
-                images={Object.values(item.images)[0]}
-                numberOfImages={Object.values(item.images).length}
+                images={item.images[0]}
+                numberOfImages={item.images.length}
               />
             );
           })}
