@@ -5,9 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-// import car_image1 from "../Assets/ferrari_3.jpg";
-// import car_image2 from "../Assets/ferrari_1.jpg";
-// import car_image3 from "../Assets/ferrari_2.jpg";
+
 
 const Items = (props) => {
   const [itemTitle, setTitle] = useState("");
