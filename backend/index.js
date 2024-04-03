@@ -3,10 +3,10 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const multer = require("multer");
-const path = require("path");
 const cors = require("cors");
 const {error} = require("console");
+
+const uploadImages = require('./controllers/uploadImages');
 
 const port = process.env.PORT || 4000;
 const mongoString = process.env.DATABASE_URL;
@@ -29,6 +29,9 @@ database.on('error', (error) => {
 database.once('open', () => {
     console.log('Database connected');
 });
+
+// Mount the image upload route
+app.use('/api', uploadImages);
 
 // Routes
 const router = require('./routes/index');
