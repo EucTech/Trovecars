@@ -33,19 +33,25 @@ const FeaturedListing = () => {
     fetchInfo();
   }, []);
 
-  // Error handling
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // // Error handling
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   // Loading state
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  if (error) {
+    console.log("error");
+  }
+
   const filterCondition = all_products.filter(
     (item) => item.condition === carCondition
   );
+
+
 
   return (
     <div className="featuredlisting">
