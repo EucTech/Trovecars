@@ -1,16 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Popular.css";
 import { Button } from "@material-tailwind/react";
-import all_products from "../Assets/all_products";
+// import all_products from "../Assets/all_products";
 import Items from "../Items/Items";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Popular = () => {
-
   const [currentPage, setCurrentPage] = useState(1);
   const [makeFilter, setMakeFilter] = useState("Audi");
+  const [all_products, setAllProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const fetchInfo = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/allProducts");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setAllProducts(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchInfo();
+  }, []);
+
+  // Error handling
+  if (error) {
+    console.log(error)
+  }
+
+  // Loading state
+  if (loading) {
+    console.log('Loading...');
+  }
+
   
   const itemsPerPage = 4
   const totalPages = Math.ceil(all_products.length / itemsPerPage);
@@ -75,8 +107,8 @@ const Popular = () => {
               transmission={item.transmission}
               fuel_type={item.fuel_type}
               price={item.price}
-              images={Object.values(item.images)[0]}
-              numberOfImages={Object.values(item.images).length}
+              images={item.images[0]}
+              numberOfImages={item.images.length}
             />
           );
         })}

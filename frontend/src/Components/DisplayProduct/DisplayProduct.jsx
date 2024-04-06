@@ -10,7 +10,7 @@ const DisplayProduct = (props) => {
   const { product } = props;
 
   // image state
-  const [mainImage, setmainImage] = useState(Object.values(product.images)[0]);
+  const [mainImage, setmainImage] = useState(product.images[0]);
   // show more
   const [showMore, setShowMore] = useState(false);
 
@@ -141,9 +141,9 @@ const DisplayProduct = (props) => {
         <div className="features">
           <h1>Safety Features</h1>
           <div className="features-items">
-            {Object.entries(product.safety_features).map(
-              ([feature, enabled], index) =>
-                enabled && (
+            {product.safety_features.map(
+              (feature, index) =>
+                (
                   <div className="feature" key={index}>
                     <p>
                       <span>
@@ -167,9 +167,9 @@ const DisplayProduct = (props) => {
         <div className="features">
           <h1>All Features</h1>
           <div className="features-items">
-            {Object.entries(product.all_features).map(
-              ([feature, enabled], index) =>
-                enabled && (
+            {product.all_features.map(
+              (feature, index) =>
+                (
                   <div className="feature" key={index}>
                     <p>
                       <span>

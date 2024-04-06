@@ -31,7 +31,7 @@ router.post('/upload', upload.array('products', 6), (req, res) => {
     }
     // Extract the filenames of the uploaded images and construct image URLs
     const imageUrls = req.files.map(file => ({
-        image_url: `http://localhost:${process.env.PORT || 4000}/images/${file.filename}`
+        image_url: `http://localhost:${process.env.PORT || 4000}/api/images/${file.filename}`
     }));
 
     res.json({
