@@ -17,7 +17,7 @@ const Breadcrum = (props) => {
       <FontAwesomeIcon className="b-icon" icon={faChevronRight} />
       <p><Link to={`/cars/${product.model}`}>{product.model}</Link></p>
       <FontAwesomeIcon className="b-icon" icon={faChevronRight} /> */}
-      <h5>{product.title}</h5>
+      {/* <h5>{product.title}</h5> */}
     </div>
   );
 };
