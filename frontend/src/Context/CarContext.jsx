@@ -4,28 +4,26 @@ import React, { createContext, useEffect, useState } from "react";
 export const CarContext = createContext(null);
 
 const CarContextProvider = (props) => {
+  const [all_product, setAllProducts] = useState([]);
 
-    const [ all_product, setAllProducts ] = useState([]);
+  const fetchInfo = async () => {
+    await fetch("http://localhost:4000/api/allProducts")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllProducts(data);
+      });
+  };
 
-    const fetchInfo = async () => {
-      await fetch("http://localhost:4000/api/allProducts")
-        .then((res) => res.json())
-        .then((data) => {
-          setAllProducts(data);
-        });
-    };
-  
-    useEffect(() => {
-      fetchInfo();
-    }, []);
-  
+  useEffect(() => {
+    fetchInfo();
+  }, []);
 
-    const contextValue = { all_product };
-    return (
-        <CarContext.Provider value={contextValue}>
-            {props.children}
-        </CarContext.Provider>
-    );
+  const contextValue = { all_product };
+  return (
+    <CarContext.Provider value={contextValue}>
+      {props.children}
+    </CarContext.Provider>
+  );
 };
 
 export default CarContextProvider;

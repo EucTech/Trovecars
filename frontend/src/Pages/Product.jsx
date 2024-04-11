@@ -11,6 +11,13 @@ const Product = () => {
   const product = all_product.find(
     (product) => product.id === Number(productId)
   );
+  
+  if (!product) {
+    return <div>
+      <h1>Loading...</h1>
+    </div>
+  }
+
   return (
     <div>
       <MainNavbar/>
