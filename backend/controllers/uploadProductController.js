@@ -28,6 +28,7 @@ const uploadProductController = {
         vin,
         images,
       } = req.body;
+      
 
       let products = await Product.find({});
       let productId;
