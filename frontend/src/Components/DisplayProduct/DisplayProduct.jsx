@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./DisplayProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
@@ -10,11 +10,18 @@ const DisplayProduct = (props) => {
   const { product } = props;
 
   // image state
-  const [mainImage, setmainImage] = useState(product.images[0]);
+  const [mainImage, setmainImage] = useState();
   // show more
   const [showMore, setShowMore] = useState(false);
 
   const subImageRef = useRef("null");
+
+  useEffect(() => {
+    if (product && product.images.length > 0) {
+    setmainImage(product.images[0]);
+    }
+  },[product])
+
 
   const changeMainImage = (image, e) => {
     setmainImage(image);
