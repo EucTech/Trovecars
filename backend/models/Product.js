@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
     model: String,
     price: String,
     year: Number,
-    drive_type: String,
+    drive_type: String, 
     transmission: String,
     fuel_type: String,
     mileage: String,
