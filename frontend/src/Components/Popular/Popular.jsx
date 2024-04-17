@@ -12,7 +12,7 @@ const Popular = () => {
   const [makeFilter, setMakeFilter] = useState("Audi");
   const [all_products, setAllProducts] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const fetchInfo = async () => {
     try {
@@ -22,10 +22,10 @@ const Popular = () => {
       }
       const data = await response.json();
       setAllProducts(data);
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       setError(error.message);
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
@@ -39,8 +39,10 @@ const Popular = () => {
   }
 
   // Loading state
-  if (loading) {
-    console.log('Loading...');
+  if (!all_products) {
+    return <div>
+      <h1>Loading...</h1>
+    </div>
   }
 
   
