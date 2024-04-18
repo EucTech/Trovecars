@@ -6,6 +6,7 @@ import Items from "../Items/Items";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ItemsLoader from "../ItemsLoader";
 
 const FeaturedListing = () => {
   const [carCondition, setCarCondition] = useState("New");
@@ -33,14 +34,14 @@ const FeaturedListing = () => {
     fetchInfo();
   }, []);
 
-  // // Error handling
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
+  // Error handling
+  if (error) {
+    console.log(error)
+  }
 
   // Loading state
   if (loading) {
-    return <div>Loading...</div>;
+    return <ItemsLoader/>;
   }
 
   if (error) {
