@@ -6,13 +6,14 @@ import Items from "../Items/Items";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import ItemsLoader from "../ItemsLoader";
 
 const Popular = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [makeFilter, setMakeFilter] = useState("Audi");
   const [all_products, setAllProducts] = useState([]);
   const [error, setError] = useState(null);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const fetchInfo = async () => {
     try {
@@ -22,10 +23,10 @@ const Popular = () => {
       }
       const data = await response.json();
       setAllProducts(data);
-      // setLoading(false);
+      setLoading(false);
     } catch (error) {
       setError(error.message);
-      // setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -39,10 +40,9 @@ const Popular = () => {
   }
 
   // Loading state
-  if (!all_products) {
-    return <div>
-      <h1>Loading...</h1>
-    </div>
+  if (loading) {
+    return <ItemsLoader/>
+  
   }
 
   
@@ -121,7 +121,7 @@ const Popular = () => {
           <FontAwesomeIcon className="p-icon" icon={faArrowRight} onClick={nextPage} />
         </div>
         <div className="popular-view-make">
-            <Button className="p-btn">View {itemsPerPage} {makeFilter}</Button>
+            <Button className="p-btn">View {filteredItems.length} {makeFilter}</Button>
         </div>
       </div>
     </div>
