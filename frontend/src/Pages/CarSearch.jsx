@@ -14,7 +14,6 @@ import { IconButton, Typography } from "@material-tailwind/react";
 
 const CarSearch = () => {
   const { all_product } = useContext(CarContext);
-
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const typeParam = queryParams.get("type");
@@ -30,6 +29,10 @@ const CarSearch = () => {
   useEffect(() => {
     setTypeFilter(typeParam || "");
   }, [typeParam]);
+
+  if (!all_product) {
+    return (<>Loading............</>)
+  }
 
 
   const filteredItems = all_product.filter((item) => {
