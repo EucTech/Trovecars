@@ -5,6 +5,25 @@ const bcrypt = require("bcrypt");
 const UserController = {
   signup: async (req, res) => {
     try {
+      const { name, email, password } = req.body;
+        switch (true) {
+            case !name:
+                return res.status(400).json({
+                    success: false,
+                    error: "Name is required",
+                });
+            case !email:
+                return res.status(400).json({
+                    success: false,
+                    error: "Email is required",
+                });
+            case !password:
+                return res.status(400).json({
+                    success: false,
+                    error: "Password is required",
+                });
+        }
+
       let check = await Users.findOne({
         email: req.body.email,
       });
