@@ -98,6 +98,7 @@ const Popular = () => {
       
         </div>
       </div>
+      {currentItems ? 
       <div className="popular-items">
         {currentItems.map((item, i) => {
           return (
@@ -114,7 +115,7 @@ const Popular = () => {
             />
           );
         })}
-      </div>
+      </div> : "No Popular Listings" }
       <div className="popular-next-prev">
         <div className="popular-icon">
           <FontAwesomeIcon className="p-icon" icon={faArrowLeft} onClick={prevPage} />

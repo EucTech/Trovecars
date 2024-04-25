@@ -25,36 +25,69 @@ const CarSearch = () => {
   const [typeFilter, setTypeFilter] = useState(typeParam || "");
   const [driveTypeFilter, setDriveTypeFilter] = useState("");
   const [fuelTypeFilter, setFuelTypeFilter] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [allItemsCount, setAllItemsCount] = useState(0);
+  const [newItemsCount, setNewItemsCount] = useState(0);
+  const [usedItemsCount, setUsedItemsCount] = useState(0);
 
   useEffect(() => {
     setTypeFilter(typeParam || "");
   }, [typeParam]);
 
-  if (!all_product) {
-    return (<>Loading............</>)
-  }
+  useEffect(() => {
+    const filterItems = () => {
+      let filteredItems = all_product.filter((item) => {
+        const matchCondition =
+          conditionFilter === "" || item.condition === conditionFilter;
+        const matchMake = makeFilter === "" || item.make === makeFilter;
+        const matchModel = modelFilter === "" || item.model === modelFilter;
+        const matchType = typeFilter === "" || item.type === typeFilter;
+        const matchDriveType =
+          driveTypeFilter === "" || item.drive_type === driveTypeFilter;
+        const matchFuelType =
+          fuelTypeFilter === "" || item.fuel_type === fuelTypeFilter;
 
+        return (
+          matchCondition &&
+          matchMake &&
+          matchModel &&
+          matchType &&
+          matchDriveType &&
+          matchFuelType
+        );
+      });
 
-  const filteredItems = all_product.filter((item) => {
-    const matchCondition =
-      conditionFilter === "" || item.condition === conditionFilter;
-    const matchMake = makeFilter === "" || item.make === makeFilter;
-    const matchModel = modelFilter === "" || item.model === modelFilter;
-    const matchType = typeFilter === "" || item.type === typeFilter;
-    const matchDriveType =
-      driveTypeFilter === "" || item.drive_type === driveTypeFilter;
-    const matchFuelType =
-      fuelTypeFilter === "" || item.fuel_type === fuelTypeFilter;
+      setFilteredItems(filteredItems);
+    };
 
-    return (
-      matchCondition &&
-      matchMake &&
-      matchModel &&
-      matchType &&
-      matchDriveType &&
-      matchFuelType
-    );
-  });
+    filterItems();
+  }, [
+    all_product,
+    conditionFilter,
+    makeFilter,
+    modelFilter,
+    typeFilter,
+    driveTypeFilter,
+    fuelTypeFilter,
+  ]);
+
+  // if (!all_product) {
+  //   return <>Loading............</>;
+  // }
+
+  useEffect(() => {
+    // Calculate the count of new and used items whenever filteredItems or conditionFilter changes
+    const newCount = filteredItems.filter((item) => item.condition === "New").length;
+    const usedCount = filteredItems.filter((item) => item.condition === "Used").length;
+    const allCount = filteredItems.length;
+    setNewItemsCount(newCount);
+    setAllItemsCount(allCount);
+    setUsedItemsCount(usedCount);
+  }, [filteredItems]);
+
+  console.log(usedItemsCount); 
+  console.log(newItemsCount); 
+  console.log(allItemsCount); 
 
   const itemsPerPage = 12;
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
@@ -64,15 +97,6 @@ const CarSearch = () => {
 
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
-  const filteredNewItems = filteredItems.filter(
-    (item) => item.condition === "New"
-  );
-  const filteredUsedItems = filteredItems.filter(
-    (item) => item.condition === "Used"
-  );
-
-  const newItemsCount = filteredNewItems.length;
-  const usedItemsCount = filteredUsedItems.length;
 
   const scrollToTop = () => {
     const element = document.getElementById("car-search-section");
@@ -89,6 +113,15 @@ const CarSearch = () => {
   const prevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
     scrollToTop();
+  };
+
+  const handleClearAll = () => {
+    setConditionFilter("");
+    setMakeFilter("");
+    setModelFilter("");
+    setTypeFilter("");
+    setDriveTypeFilter("");
+    setFuelTypeFilter("");
   };
 
   return (
@@ -184,14 +217,14 @@ const CarSearch = () => {
             ))}
           </Select>
         </div>
-        <h4 onClick={() => setMakeFilter("")}>Clear all</h4>
+        <h4 onClick={handleClearAll}>Clear all</h4>
         <div className="car-all-new-used" id="car-all-new-used">
           <div
             onClick={() => setConditionFilter("")}
             className={`${conditionFilter === "" ? "car-active" : ""}`}
           >
             <h1>All</h1>
-            <p>({filteredItems.length})</p>
+            <p>({allItemsCount})</p>
           </div>
           <div
             onClick={() => setConditionFilter("New")}

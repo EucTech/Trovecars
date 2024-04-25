@@ -36,12 +36,12 @@ const FeaturedListing = () => {
 
   // Error handling
   if (error) {
-    console.log(error)
+    console.log(error);
   }
 
   // Loading state
   if (loading) {
-    return <ItemsLoader/>;
+    return <ItemsLoader />;
   }
 
   if (error) {
@@ -51,8 +51,6 @@ const FeaturedListing = () => {
   const filterCondition = all_products.filter(
     (item) => item.condition === carCondition
   );
-
-
 
   return (
     <div className="featuredlisting">
@@ -77,6 +75,7 @@ const FeaturedListing = () => {
           </Button>
         </div>
       </div>
+      {filterCondition.length ?
       <div className="featuredlisting-main">
         <div className="featuredlisting-main-left">
           <Link to={`/product/${filterCondition[0].id}`}>
@@ -134,7 +133,7 @@ const FeaturedListing = () => {
             );
           })}
         </div>
-      </div>
+      </div> : "No Featured Listing"}
     </div>
   );
 };

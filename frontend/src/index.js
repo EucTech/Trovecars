@@ -1,19 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@material-tailwind/react";
-import CarContextProvider from './Context/CarContext';
+import CarContextProvider from "./Context/CarContext";
+import { ErrorBoundary } from "react-error-boundary";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <CarContextProvider>
-        <App />
-      </CarContextProvider>
-    </ThemeProvider>
+    <ErrorBoundary fallback={<p>Something went wrong. Try again later.</p>}>
+      <ThemeProvider>
+        <CarContextProvider>
+          <App />
+        </CarContextProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 

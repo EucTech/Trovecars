@@ -19,7 +19,12 @@ const SignUp = () => {
     agreeToTerms: false,
   });
   
-  const [, setError] = useState('');
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmpassword: '',
+  });
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
@@ -32,13 +37,13 @@ const SignUp = () => {
     e.preventDefault();
 
     if (formData.agreeToTerms === false) {
-      setError('Please agree to the Terms and Conditions');
+      setErrors('Please agree to the Terms and Conditions');
       console.log('Please agree to the Terms and Conditions');
       return;
     }
 
     if (formData.password !== formData.confirmpassword) {
-      setError('Password do not match');
+      setErrors('Password do not match');
       console.log('Password do not match');
       return;
     }
@@ -51,6 +56,9 @@ const SignUp = () => {
         },
         body: JSON.stringify(formData),
       });
+
+      const data = await response.json();
+
       if (response.status === 201) {
         setFormData({
           name: '',
@@ -60,11 +68,20 @@ const SignUp = () => {
           agreeToTerms: false,
         });
       }
-      const data = await response.json();
-      console.log(data);
+
+      if (response.status === 400) {
+        if (data && data.errors) {
+          setErrors(data.errors);
+          console.log("Error", data.errors);
+        } else {
+          console.log("Unexpected error:", data);
+        }
+        return;
+      }
+      
     } catch (error) {
       console.error('Error:', error.message);
-      setError('Error:', 'Failed to Sign Up', error.message);
+      setErrors(error.message);
     }
   };
 
@@ -92,6 +109,8 @@ const SignUp = () => {
                   className: "before:content-none after:content-none",
                 }}
               />
+              {errors.name && <span className="text-red-500">{errors.name}</span>}
+
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Your Email
               </Typography>
@@ -106,6 +125,7 @@ const SignUp = () => {
                   className: "before:content-none after:content-none",
                 }}
               />
+              {errors.email && <span className="text-red-500">{errors.email}</span>}
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Password
               </Typography>
@@ -121,6 +141,8 @@ const SignUp = () => {
                   className: "before:content-none after:content-none",
                 }}
               />
+              {errors.password && <span className="text-red-500">{errors.password}</span>}
+
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Confirm Password
               </Typography>
@@ -136,6 +158,8 @@ const SignUp = () => {
                   className: "before:content-none after:content-none",
                 }}
               />
+              {errors.confirmpassword && <span className="text-red-500">{errors.confirmpassword}</span>}
+
             </div>
             <Checkbox
               name="agreeToTerms"
