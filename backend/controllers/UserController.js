@@ -6,32 +6,31 @@ const UserController = {
   signup: async (req, res) => {
     try {
       const { name, email, password } = req.body;
-        switch (true) {
-            case !name:
-                return res.status(400).json({
-                    success: false,
-                    error: "Name is required",
-                });
-            case !email:
-                return res.status(400).json({
-                    success: false,
-                    error: "Email is required",
-                });
-            case !password:
-                return res.status(400).json({
-                    success: false,
-                    error: "Password is required",
-                });
-        }
 
+      const errors = {};
+
+      if (!name) {
+        errors.name = "Name is required";
+      }
+  
+      if (!password) {
+        errors.password = "Password is required";
+      }
+  
       let check = await Users.findOne({
         email: req.body.email,
       });
 
-      if (check) {
+      if (!email) {
+        errors.email = "Email is required";
+      }
+      else if (check) 
+        errors.email = "Email already used";
+
+      if (Object.keys(errors).length > 0) {
         return res.status(400).json({
           success: false,
-          error: "Email already used",
+          errors: errors,
         });
       }
 
