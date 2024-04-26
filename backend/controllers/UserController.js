@@ -74,9 +74,13 @@ const UserController = {
 
   login: async (req, res) => {
     try {
+
+      const errors = {};
+
       let user = await Users.findOne({
         email: req.body.email,
       });
+
       if (user) {
         const passCompare = await bcrypt.compare(req.body.password, user.password);
         if (passCompare) {
@@ -90,15 +94,24 @@ const UserController = {
 
           res.status(200).json({ 
             success: true, 
+            message: "Successfully login",
             email: user.email,
             token: token, });
 
         } else {
-          res.status(401).json({ success: false, errors: "Wrong Password" });
+          errors.passCompare = "Wrong Password";
         }
       } else {
-        res.status(401).json({ success: false, errors: "Wrong not found" });
+        errors.user = "User is not registered";
       }
+
+      if (Object.keys(errors).length > 0) {
+        res.status(401).json({
+          success: false,
+          errors: errors,
+        })
+      }
+
     } catch (error) {
       console.error("Error: Cannot login User", error);
       res.status(500).json({
