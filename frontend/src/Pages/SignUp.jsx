@@ -11,6 +11,7 @@ import {
 
 const SignUp = () => {
 
+  const [data, setData] = useState("");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,13 +38,13 @@ const SignUp = () => {
     e.preventDefault();
 
     if (formData.agreeToTerms === false) {
-      setErrors('Please agree to the Terms and Conditions');
+      setErrors({...errors, agreeToTerms: 'Please agree to the Terms and Conditions'});
       console.log('Please agree to the Terms and Conditions');
       return;
     }
 
     if (formData.password !== formData.confirmpassword) {
-      setErrors('Password do not match');
+      setErrors({...errors, confirmpassword: 'Password do not match'});
       console.log('Password do not match');
       return;
     }
@@ -58,8 +59,10 @@ const SignUp = () => {
       });
 
       const data = await response.json();
+      setData(data);
 
       if (response.status === 201) {
+        console.log(data)
         setFormData({
           name: '',
           email: '',
@@ -67,6 +70,7 @@ const SignUp = () => {
           confirmpassword: '',
           agreeToTerms: false,
         });
+        setErrors({})
       }
 
       if (response.status === 400) {
@@ -89,6 +93,7 @@ const SignUp = () => {
     <div className="signup">
       <MainNavbar />
       <div className="signup-main">
+        {data.message && <div className="text-blue-500 m-4">{data.message}</div>}
         <Card color="transparent" shadow={false}>
           <Typography variant="h4" color="blue-gray">
             Sign Up
@@ -182,7 +187,8 @@ const SignUp = () => {
                 </Typography>
               }
               containerProps={{ className: "-ml-2.5" }}
-            />
+            /> <br />
+            {errors.agreeToTerms && <span className="text-red-500 text-[11px] mb-4 ">{errors.agreeToTerms}</span>} 
             <Button className="mt-6" fullWidth type="submit">
               sign up
             </Button>
